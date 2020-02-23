@@ -1,5 +1,5 @@
-<p>
-  book-search works!
-</p>
 <input type="text" [(ngModel)]="searchQuery">
 <button (click)="getBooks()">click</button>
+<span *ngFor="let item of (bookState|async).books">
+  {{item.id}}
+</span>
