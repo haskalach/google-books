@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { BookSearchService } from './service/book-search.service';
+import { Book } from './models/books.model';
 
 @Component({
   selector: 'app-book-search',
@@ -15,8 +16,8 @@ export class BookSearchComponent implements OnInit {
   }
 
   getBooks() {
-    this.bookService.getBookSearch(this.searchQuery).subscribe(next => {
-      console.log({ next });
+    this.bookService.getBookSearch(this.searchQuery).subscribe((books: Book[]) => {
+      console.log({ books });
     });
   }
 }
