@@ -1,5 +1,12 @@
 <div class="search-box">
   <input class="form-control" type="text" [(ngModel)]="searchQuery" placeholder="Enter your Search">
+  <select class="form-control" [(ngModel)]="filterParam">
+    <option selected value=null> Select Filter param</option>
+    <option *ngFor="let option of (bookState|async).params" [value]="option.param">
+      {{option.paramLabel}}
+    </option>
+  </select>
+  <input class="form-control" type="text" [(ngModel)]="filterData" placeHolder="Enter yout filter">
   <button (click)="getBooks()" class="btn btn-success">Apply</button>
 </div>
 

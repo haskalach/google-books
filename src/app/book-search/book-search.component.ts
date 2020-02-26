@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { BookSearchService } from './service/book-search.service';
-import { Book } from './models/books.model';
 import { Store } from '@ngrx/store';
 
 import { Observable } from 'rxjs';
 import * as fromApp from '../store/app.reducer';
+import { State } from './store/book.reducer';
 @Component({
   selector: 'app-book-search',
   templateUrl: './book-search.component.html',
@@ -13,7 +13,9 @@ import * as fromApp from '../store/app.reducer';
 export class BookSearchComponent implements OnInit {
 
   searchQuery = '';
-  bookState: Observable<{ books: Book[] }>;
+  filterParam = null;
+  filterData = '';
+  bookState: Observable<State>;
   constructor(private bookService: BookSearchService, private store: Store<fromApp.AppState>) { }
 
   ngOnInit() {
@@ -21,6 +23,6 @@ export class BookSearchComponent implements OnInit {
   }
 
   getBooks() {
-    this.bookService.getBooks(this.searchQuery);
+    this.bookService.getBooks(this.searchQuery, this.filterParam, this.filterData);
   }
 }

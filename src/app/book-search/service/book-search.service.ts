@@ -16,22 +16,18 @@ export class BookSearchService {
   bookApi = environment.baseApi + 'books/v1/volumes';
   constructor(private http: HttpClient, private store: Store<fromApp.AppState>) { }
 
-  getBookSearch(q) {
+  getBookSearch(q, param?, paramValue?) {
     const params = new HttpParams()
-      .set('q', q);
+      .set('q', param !== null ? q + '+' + param + ':' + paramValue : q);
+
     return this.http.get<BooksResponse>(this.bookApi, { params }).pipe(
       map(booksResponse => {
-        return booksResponse.items.map(books => {
-          return {
-            ...books,
-            books: books ? books : []
-          };
-        });
+        return booksResponse.items || [];
       }));
   }
 
-  getBooks(searchQuery) {
-    this.getBookSearch(searchQuery).subscribe(next => {
+  getBooks(searchQuery, param?, paramValue?) {
+    this.getBookSearch(searchQuery, param, paramValue).subscribe(next => {
       this.store.dispatch(new BooksActions.SetBooks(next));
     });
   }

@@ -1,3 +1,4 @@
+
 export interface BooksResponse {
   kind: string;
   totalItems: number;
@@ -97,4 +98,8 @@ export interface PdfOrEpub {
 }
 export interface SearchInfo {
   textSnippet: string;
+}
+export interface SearchParams {
+  param: string;
+  paramLabel: string;
 }
