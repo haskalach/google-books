@@ -3,7 +3,8 @@ import { Routes, RouterModule } from '@angular/router';
 import { BookSearchComponent } from './book-search/book-search.component';
 
 const routes: Routes = [
-  { path: '', component: BookSearchComponent }
+  { path: '', component: BookSearchComponent },
+  { path: '**', redirectTo: '', pathMatch: 'full' }
 ];
 
 @NgModule({
