@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { BooksResponse } from '../models/books.model';
 import { map } from 'rxjs/operators';
@@ -14,10 +14,12 @@ import * as fromApp from '../../store/app.reducer';
 })
 export class BookSearchService {
   bookApi = environment.baseApi + 'books/v1/volumes';
-  constructor(private http: HttpClient,private store: Store<fromApp.AppState>) { }
+  constructor(private http: HttpClient, private store: Store<fromApp.AppState>) { }
 
   getBookSearch(q) {
-    return this.http.get<BooksResponse>(this.bookApi + '?q=' + q).pipe(
+    const params = new HttpParams()
+      .set('q', q);
+    return this.http.get<BooksResponse>(this.bookApi, { params }).pipe(
       map(booksResponse => {
         return booksResponse.items.map(books => {
           return {

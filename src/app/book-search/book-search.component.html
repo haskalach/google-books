@@ -1,3 +1,6 @@
-<input class="form-control" type="text" [(ngModel)]="searchQuery" placeholder="Enter your Search">
-<button (click)="getBooks()" class="btn btn-success">click</button>
+<div class="search-box">
+  <input class="form-control" type="text" [(ngModel)]="searchQuery" placeholder="Enter your Search">
+  <button (click)="getBooks()" class="btn btn-success">Apply</button>
+</div>
+
 <app-book-card [books]="(bookState|async).books"></app-book-card>

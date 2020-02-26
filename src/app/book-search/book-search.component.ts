@@ -4,12 +4,11 @@ import { Book } from './models/books.model';
 import { Store } from '@ngrx/store';
 
 import { Observable } from 'rxjs';
-import * as BooksActions from './store/book.actions';
 import * as fromApp from '../store/app.reducer';
 @Component({
   selector: 'app-book-search',
   templateUrl: './book-search.component.html',
-  styleUrls: ['./book-search.component.css']
+  styleUrls: ['./book-search.component.scss']
 })
 export class BookSearchComponent implements OnInit {
 

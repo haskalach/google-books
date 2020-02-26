@@ -1,0 +1,11 @@
+.search-box {
+  display: flex;
+  max-width: 400px;
+  align-items: center;
+  margin-right: auto;
+  margin-bottom: 20px;
+  margin-left: auto;
+  .form-control {
+    margin-right: 10px;
+  }
+}

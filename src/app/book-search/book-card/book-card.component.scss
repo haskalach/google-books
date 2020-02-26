@@ -1,0 +1,16 @@
+@import "../../../assets/variables/variables.scss";
+
+.card-img-top {
+  height: 250px;
+}
+
+@media (max-width: $md) {
+  .card-img-top {
+    height: auto !important;
+    max-height: 300px;
+  }
+  .card{
+    max-width: 60%;
+    margin: 0 auto;
+  }
+}
