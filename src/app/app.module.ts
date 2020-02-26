@@ -8,11 +8,13 @@ import { AppComponent } from './app.component';
 import { BookSearchComponent } from './book-search/book-search.component';
 import { StoreModule } from '@ngrx/store';
 import * as fromaApp from './store/app.reducer';
+import { BookCardComponent } from './book-search/book-card/book-card.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    BookSearchComponent
+    BookSearchComponent,
+    BookCardComponent
   ],
   imports: [
     BrowserModule,
