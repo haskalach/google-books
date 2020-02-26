@@ -12,7 +12,7 @@ const initialState: State = {
     { param: 'inauthor', paramLabel: 'Author' },
     { param: 'inpublisher', paramLabel: 'Publisher' },
     { param: 'subject', paramLabel: 'Subject' },
-    { param: 'isbn', paramLabel: 'Lsbn' },
+    { param: 'isbn', paramLabel: 'Isbn' },
     { param: 'lccn', paramLabel: 'Lccn' },
     { param: 'oclc', paramLabel: 'Oclc' },
   ]
