@@ -17,9 +17,9 @@ const initialState: State = {
     { param: 'oclc', paramLabel: 'Oclc' },
   ]
 };
-
 export function bookReducer(state = initialState, action: BooksActions.BooksActions) {
   switch (action.type) {
+    // Set books
     case BooksActions.SET_BOOKS:
       return {
         ...state,

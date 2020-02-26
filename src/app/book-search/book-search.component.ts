@@ -23,6 +23,7 @@ export class BookSearchComponent implements OnInit {
   }
 
   getBooks() {
+    // Triger the Api Call  To apply search and Filters
     this.bookService.getBooks(this.searchQuery, this.filterParam, this.filterData);
   }
 }
